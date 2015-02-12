@@ -5,8 +5,6 @@ Make Swift String type more powerful.
 
 Copy all files in RacoonString to your project.
 
-The `countElements()` is rename to `count()` in Swift 1.2, if use previous version Xcode, please rename all `count()` to `countElements()`
-
 ## How to use
 
 var string = "Hello RacoonString. :)"

@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     
     public func length() -> Int! {
-        return count(self)
+        return countElements(self)
     }
     
     public func match(str : String) -> Range<String.Index>? {
@@ -65,6 +66,29 @@ extension String {
     
     public func unescape() -> String? {
         return self.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+    }
+    
+    public func color() -> UIColor? {
+        let regex = "^#{1}([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})$".regex()!
+        if let matches = self.match(regex) {
+            if matches.count > 0 {
+                let allHex = matches[0]
+                let rHex = allHex[1]
+                let gHex = allHex[2]
+                let bHex = allHex[3]
+                let rScanner = NSScanner(string: rHex)
+                let gScanner = NSScanner(string: gHex)
+                let bScanner = NSScanner(string: bHex)
+                var r : CUnsignedInt = 0
+                var g : CUnsignedInt = 0
+                var b : CUnsignedInt = 0
+                rScanner.scanHexInt(&r)
+                gScanner.scanHexInt(&g)
+                bScanner.scanHexInt(&b)
+                return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: 1.0)
+            }
+        }
+        return nil
     }
     
     public func regex() -> NSRegularExpression? {

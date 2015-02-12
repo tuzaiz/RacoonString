@@ -33,6 +33,8 @@ class ViewController: UIViewController {
         println(escapedStr)
         println(escapedStr?.unescape())
         
+        println("#12345G".color())
+        
     }
 
     override func didReceiveMemoryWarning() {
