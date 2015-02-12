@@ -8,10 +8,6 @@
 
 import Foundation
 
-import Foundation
-
-typealias Regex = NSRegularExpression
-
 extension String {
     
     public func length() -> Int! {
