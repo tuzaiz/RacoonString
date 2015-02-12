@@ -3,31 +3,31 @@ Make Swift String type more powerful.
 
 ## Installation
 
-Copy all files in src to your project.
+Copy all files in RacoonString to your project.
 
 ## How to use
 
-var string = "Hello UniformString"
+var string = "Hello RacoonString. :)"
 
 ### length
 
 ```
 // Get length of string
-string.length() // return 19
+string.length() // return 22
 ```
 
 ### Match by string
 
 ```
 // Return range of this string if exist
-string.match("Uniform") // return 6..<13
+string.match("Racoon") // return 6..<12
 ```
 
 ### Match by regex
 
 ```
-if let regex = "/(Uni)form/".regex() {
-    string.match(regex) // return [["Uniform", "Uni"]]
+if let regex = "(Rac)oon".regex() {
+    string.match(regex) // return [["Racoon", "Rac"]]
 }
 ```
 
@@ -40,26 +40,26 @@ string[1..<3] // return "el"
 ### split
 
 ```
-string.splitBy(" ") // return ["Hello", "UniformString"]
+string.splitBy(" ") // return ["Hello", "RacoonString", ":)"]
 ```
 
 ### sub by string
 
 ```
-string.sub(" ", ",") // return "Hello,UniformString"
+string.sub(" ", ",") // return "Hello,RacoonString.,:)"
 ```
 
 ### sub by range
 
 ```
-string.sub(0..<5, "Hi") // return "Hi UniformString"
+string.sub(0..<5, "Hi") // return "Hi RacoonString. :)"
 ```
 
 ### trim
 
 ```
-var str = "   Hello UnifromString  "
-str.trim() // return "Hello UniformString"
+var str = "   Hello RacoonString. :) "
+str.trim() // return "Hello RacoonString. :)"
 ```
 
 ### html escape
